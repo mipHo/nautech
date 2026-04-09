@@ -82,20 +82,29 @@ h5 {
   text-align: center;
   font-size: clamp(25px, 2.5vw, 35px);
 }
-.parallax {
+
+.parallax-container {
+  /* Establece la altura del bloque (ajusta a tu gusto, ej: 50vh o 400px) */
+  height: 60vh; 
   width: 100%;
-  height: auto; /* O height: 100%; y object-fit: cover; dependiendo del efecto deseado */
-  display: block; /* Elimina el espacio en blanco inferior predeterminado */
-  object-fit: cover; /* Escala la imagen para cubrir el contenedor manteniendo la relación de aspecto */
-  object-position: center; /* Centra la imagen dentro del contenedor */
+  
+  /* La magia del parallax */
+  background-image: url('img/nauti.png');
+  background-attachment: fixed; /* Fija la imagen al fondo del viewport */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* Toque extra: un degradado suave para que no se vea tan cruda */
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
 }
 
-.parallax-image {
-  width: 100%;
-  height: auto; /* O height: 100%; y object-fit: cover; dependiendo del efecto deseado */
-  display: block; /* Elimina el espacio en blanco inferior predeterminado */
-  object-fit: cover; /* Escala la imagen para cubrir el contenedor manteniendo la relación de aspecto */
-  object-position: center; /* Centra la imagen dentro del contenedor */
+/* Optimización para móviles (el fixed suele dar problemas en iOS/Android) */
+@media (max-width: 768px) {
+  .parallax-container {
+    background-attachment: scroll; /* Cambia a scroll normal en móviles */
+    height: 40vh;
+  }
 }
 
 .parallax-video {
