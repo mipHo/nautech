@@ -82,13 +82,20 @@ h5 {
   text-align: center;
   font-size: clamp(25px, 2.5vw, 35px);
 }
-
 .parallax {
-  position: relative;
-  min-height: 35vh;
   width: 100%;
-  overflow: hidden;
-  background-color: #00539B;
+  height: auto; /* O height: 100%; y object-fit: cover; dependiendo del efecto deseado */
+  display: block; /* Elimina el espacio en blanco inferior predeterminado */
+  object-fit: cover; /* Escala la imagen para cubrir el contenedor manteniendo la relación de aspecto */
+  object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+.parallax-image {
+  width: 100%;
+  height: auto; /* O height: 100%; y object-fit: cover; dependiendo del efecto deseado */
+  display: block; /* Elimina el espacio en blanco inferior predeterminado */
+  object-fit: cover; /* Escala la imagen para cubrir el contenedor manteniendo la relación de aspecto */
+  object-position: center; /* Centra la imagen dentro del contenedor */
 }
 
 .parallax-video {
