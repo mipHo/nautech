@@ -1,0 +1,147 @@
+@font-face {
+    font-family: Barlow; font-weight: normal; src: url('../typography/Barlow-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Barlow"; font-weight: normal; src: url('../typography/Barlow-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Barlow Bold"; font-weight: bold; src: url('../typography/Barlow-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Barlow Heavy"; font-weight: 900; src: url('../typography/Barlow-Black.ttf');
+}
+
+body {
+    font-family: "Barlow";
+}
+
+.home-bg {
+    background-color:rgb(250, 250, 250);
+    color: rgb(45, 45, 45);
+}
+
+.main-img {
+    max-width: 500px;
+    min-width: 50px;
+    width: 5vw;
+}
+
+.main-bg {
+    background-image: url("../img/bg_1.svg");
+    background-size: cover;
+    padding-bottom: 2vh;
+}
+
+.principal {
+    text-align: center !important;
+    height: 70vh;
+    padding-top: 15vh;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(35px, 6vw, 110px);
+    color: rgb(0, 83, 156);
+    font-family: "Barlow Bold";
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(15px, 4vw, 80px);
+    color: rgb(45, 45, 45);
+}
+
+h3 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(15px, 2.5vw, 40px);
+    color: rgb(45, 45, 45);
+}
+
+h4 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(30px, 2.5vw, 80px);
+}
+
+h5 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(25px, 2.5vw, 35px);
+}
+
+
+
+.parallax {
+    background-image: url("../img/bg.jpg");
+
+    min-height:35vh;
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-width {
+    width: 18rem;
+    max-width: 180px;
+}
+
+.custom-card {
+    background-color: rgb(43, 43, 43);
+    color: #ffffff;
+    max-width: 320px;
+}
+.services {
+    margin-top: 3vh;
+}
+
+.contact {
+    margin-top: 6vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: rgb(68, 68, 68);
+    color: white;
+}
+
+a.wsp-btn {
+    height: auto;
+    max-width: 290px;
+    padding: 1px 6px;
+    border: 1px;
+    border-radius: 8px;
+    background-color: #c3c2c2ff;
+    text-decoration: none;
+}
+
+.qr-wsp {
+    width: auto;
+    max-width: 100%;
+    max-height: 290px;
+    margin-top: 3vh;
+    border-radius: 1vh;
+}
+
+.cat-img {
+    width: auto;
+    max-width: 100%;
+    max-height: 500px;
+}
+
+.footer {
+    background-color: black;
+    width: 100%;
+    color: #c4c3c4ff;
+    
+}
+
+.footer-img {
+    width: 40vw;
+    min-width: 300px;
+}
