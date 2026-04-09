@@ -40,8 +40,8 @@ Tests use Vitest with `@cloudflare/vitest-pool-workers`.
 
 ## Architecture
 
-- **Frontend** (`index.html` + `index.js`): Single-page static site using Bootstrap 4. The contact form POSTs JSON to `https://contacto.huellagestion.cl`.
-- **Backend** (`backend/contact-form-api/src/index.js`): Cloudflare Worker that receives POST requests, validates fields, and sends email via the Resend API. CORS is restricted to `huellagestion.cl` and `www.huellagestion.cl`.
+- **Frontend** (`index.html` + `index.js`): Single-page static site using Bootstrap 4. The contact form POSTs JSON to `https://contacto.ammonita.cl`.
+- **Backend** (`backend/contact-form-api/src/index.js`): Cloudflare Worker that receives POST requests, validates fields, and sends email via the Resend API. CORS is restricted to `ammonita.cl` and `www.ammonita.cl`.
 - **Email delivery**: Uses Resend API. `FROM_EMAIL`, `TO_EMAIL`, and `RESEND_API_KEY` are configured in `wrangler.jsonc` vars (note: the API key in `wrangler.jsonc` is exposed in plaintext — it should be moved to a Wrangler secret).
 
 ## Key Notes

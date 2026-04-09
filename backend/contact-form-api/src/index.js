@@ -15,8 +15,8 @@ export default {
     
     // Allowed origins list
     const allowedOrigins = [
-      "https://huellagestion.cl",
-      "https://www.huellagestion.cl",
+      "https://ammonita.cl",
+      "https://www.ammonita.cl",
     ];
 
     const corsHeaders = {
@@ -98,7 +98,7 @@ export default {
                 <p style="white-space: pre-line; color: #333;">${message.replace(/\n/g, '<br>')}</p>
               </div>
 
-              <p style="font-size: 13px; color: #777; margin-top: 20px;">Este mensaje fue enviado desde el formulario de contacto de huellagestion.cl.</p>
+              <p style="font-size: 13px; color: #777; margin-top: 20px;">Este mensaje fue enviado desde el formulario de contacto de ammonita.cl.</p>
             </div>
           `,
           reply_to: email,

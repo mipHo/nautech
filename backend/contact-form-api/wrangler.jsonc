@@ -8,8 +8,8 @@
 	"main": "src/index.js",
 	"compatibility_date": "2025-11-11",
 	"vars":{
-		"FROM_EMAIL": "contacto-web@huellagestion.cl",
-		"TO_EMAIL" : "contacto@huellagestion.cl",
+		"FROM_EMAIL": "contacto-web@ammonita.cl",
+		"TO_EMAIL" : "contacto@ammonita.cl",
 		"RESEND_API_KEY": "re_akWYsSTW_HAuKZcEJgjpAecrgFrqaSsYJ"
 	},
 	"observability": {

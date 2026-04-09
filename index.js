@@ -1,7 +1,7 @@
 async function submitForm(e) {
   e.preventDefault();
   
-  const response = await fetch('https://contacto.huellagestion.cl', {
+  const response = await fetch('https://contacto.ammonita.cl', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
