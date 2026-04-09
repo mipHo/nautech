@@ -13,9 +13,9 @@ h1, h2, h3, h4, h5, .contact-form label, .contact-form button {
 }
 
 .main-img {
-  max-width: 500px;
+  max-width: 300px;
   min-width: 50px;
-  width: 40vw;
+  width: 30vw;
 }
 
 .main-bg {
@@ -203,8 +203,8 @@ a.wsp-btn img {
 }
 
 .footer-img {
-  width: 40vw;
-  min-width: 300px;
+  width: 20vw;
+  min-width: 130px;
   filter: brightness(0) invert(1);
 }
 
