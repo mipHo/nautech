@@ -437,7 +437,7 @@
 
   .service-item {
     display: grid;
-    grid-template-columns: 80px 1.4fr 1fr auto;
+    grid-template-columns: 80px 1.4fr 1fr 170px;
     gap: 40px;
     align-items: start;
     padding: 32px 0;
@@ -495,6 +495,8 @@
     font-size: 12px;
     color: var(--ink-3);
     padding-top: 4px;
+    text-align: right;
+    line-height: 1.5;
     transition: color 0.2s, transform 0.2s;
   }
 
@@ -776,7 +778,7 @@
           <span class="accent">a la mitad</span> en 90 días.
         </h1>
         <p class="hero-sub rise rise-3">
-          Auditamos tu infraestructura, identificamos qué sobra, y lo movemos. Sin reescribir tu stack, sin interrupciones en producción, sin frameworks mágicos.
+          Auditamos tu infraestructura, identificamos qué sobra y lo ajustamos a tus necesidades. Sin modificar tu stack, sin interrupciones en producción y sin frameworks mágicos.
         </p>
         <div class="hero-cta-row rise rise-4">
           <a href="#contact" class="btn-primary">
@@ -792,7 +794,7 @@
           <div class="dash-head">
             <div class="dash-title">
               <span class="dot"></span>
-              Gasto cloud · cliente real
+              Gasto cloud
             </div>
             <span class="dash-date">Últimos 12 meses</span>
           </div>
@@ -860,7 +862,7 @@
                     fill="url(#beforeGrad)" />
 
               <!-- after area fill -->
-              <path d="M 220,34 L 254,82 L 288,118 L 322,138 L 356,144 L 390,144 L 390,160 L 220,160 Z"
+              <path d="M 220,34 L 254,68 L 288,86 L 322,96 L 356,102 L 390,104 L 390,160 L 220,160 Z"
                     fill="url(#afterGrad)" />
 
               <!-- migration marker vertical line -->
@@ -871,13 +873,13 @@
                     fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
               <!-- after line -->
-              <path class="line-path after" d="M 220,34 L 254,82 L 288,118 L 322,138 L 356,144 L 390,144"
+              <path class="line-path after" d="M 220,34 L 254,68 L 288,86 L 322,96 L 356,102 L 390,104"
                     fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
               <!-- migration marker label -->
               <g transform="translate(220, 10)">
                 <rect x="-42" y="-4" width="84" height="15" rx="3" fill="#0c0d10"/>
-                <text x="0" y="6.5" font-family="Geist Mono, monospace" font-size="9" fill="#fbfaf8" text-anchor="middle" dominant-baseline="middle">migration</text>
+                <text x="0" y="6.5" font-family="Geist Mono, monospace" font-size="9" fill="#fbfaf8" text-anchor="middle" dominant-baseline="middle">migración</text>
               </g>
 
               <!-- data points before -->
@@ -892,11 +894,11 @@
 
               <!-- data points after -->
               <g fill="#fbfaf8" stroke="#2563eb" stroke-width="1.5">
-                <circle class="data-point" cx="254" cy="82" r="2.5" style="animation-delay:1.8s"/>
-                <circle class="data-point" cx="288" cy="118" r="2.5" style="animation-delay:1.95s"/>
-                <circle class="data-point" cx="322" cy="138" r="2.5" style="animation-delay:2.1s"/>
-                <circle class="data-point" cx="356" cy="144" r="2.5" style="animation-delay:2.25s"/>
-                <circle class="data-point" cx="390" cy="144" r="3" style="animation-delay:2.4s"/>
+                <circle class="data-point" cx="254" cy="68" r="2.5" style="animation-delay:1.8s"/>
+                <circle class="data-point" cx="288" cy="86" r="2.5" style="animation-delay:1.95s"/>
+                <circle class="data-point" cx="322" cy="96" r="2.5" style="animation-delay:2.1s"/>
+                <circle class="data-point" cx="356" cy="102" r="2.5" style="animation-delay:2.25s"/>
+                <circle class="data-point" cx="390" cy="104" r="3" style="animation-delay:2.4s"/>
               </g>
             </svg>
           </div>
@@ -919,10 +921,10 @@
         <div>
           <div class="service-title">
             Auditoría
-            <small>2 semanas · gratis si no hay caso</small>
+            <small>2 semanas · Gratis si no aplica</small>
           </div>
         </div>
-        <div class="service-desc">Revisión completa de tu setup cloud — qué está sobredimensionado, qué no se usa, dónde se fuga la factura. Entregable: un informe accionable con el ahorro proyectado línea por línea.</div>
+        <div class="service-desc">Analizamos tu infraestructura completa y detectamos dónde se está perdiendo dinero: recursos sobredimensionados, servicios innecesarios y malas decisiones de arquitectura. Entregable: un informe claro con ahorro proyectado, línea por línea, y qué hacer exactamente en cada caso.</div>
         <div class="service-meta">Alcance fijo →</div>
       </div>
 
@@ -934,20 +936,28 @@
             <small>Ejecución sin downtime</small>
           </div>
         </div>
-        <div class="service-desc">Implementamos los cambios: rightsizing, reservas, migración a Hetzner o bare metal cuando corresponde. Sin ventanas nocturnas, sin reescribir código.</div>
-        <div class="service-meta">Pago desde ahorro →</div>
+        <div class="service-desc">
+              Aplicamos cambios que generan impacto: ajuste de recursos, optimización de uso y, cuando tiene sentido, migración hacia alternativas más eficientes. 
+              Sin interrupciones. Sin reescribir tu sistema. Sin complejidad innecesaria.
+        </div>
+        <div class="service-meta">Pago desde el ahorro generado →</div>
       </div>
 
       <div class="service-item">
         <div class="service-num">03</div>
         <div>
           <div class="service-title">
-            Guardia mensual
+            Optimización continua
             <small>Suscripción · sin lock-in</small>
           </div>
         </div>
-        <div class="service-desc">Revisamos factura, servicios nuevos y configuraciones cada mes. Porque la nube tiende al desorden sola, y alguien tiene que mantener la disciplina.</div>
-        <div class="service-meta">Retainer →</div>
+        <div class="service-desc">
+              La nube tiende a encarecerse con el tiempo.
+              Nosotros lo evitamos.
+              Revisamos tu infraestructura cada mes: costos, servicios nuevos y decisiones que puedan aumentar la factura.
+              Ajustamos antes de que el problema aparezca. No después.
+        </div>
+        <div class="service-meta">Suscripción mensual →</div>
       </div>
     </div>
   </div>
@@ -990,7 +1000,7 @@
   <div class="wrap">
     <div class="section-eyebrow">Equipo</div>
     <h2 class="section-title">Dos ingenieros. Eso es todo.</h2>
-    <p class="section-lede">Entre los dos: cincoi años de infraestructura cloud, cientos de anomalías de facturación resueltas, y una aversión importante al desperdicio.</p>
+    <p class="section-lede">Entre los dos cinco años de infraestructura en la nube, cientos de anomalías de facturación resueltas y una aversión importante al desperdicio.</p>
 
     <div class="team-grid">
       <div class="person">
