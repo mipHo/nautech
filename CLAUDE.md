@@ -4,47 +4,34 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the **Ammonita** website — a static frontend for a DevOps consulting company focused on reducing cloud costs for small enterprises and startups, plus a Cloudflare Worker backend for the contact form. The codebase was originally built for Huella Gestión and is being repurposed for Ammonita.
+This is the **Minga** website — a static landing page for a two-person DevOps consultancy focused on reducing cloud costs for startups and small enterprises in Chile. The site is in Spanish and uses a deliberately austere, monochromatic visual language with `Geist` / `Geist Mono` (Google Fonts) and a small blue accent.
 
-## Running the Frontend
+The repo was originally built for *Huella Gestión*, then briefly repurposed for *Ammonita*, and is now Minga. Some artifacts of those earlier iterations may still be present.
 
-Serve the static site locally:
+## Running locally
 
 ```bash
 python -m http.server 8000
 ```
 
-The site is a single-page static HTML/CSS/JS app (`index.html`, `index.js`, `css/`). No build step required.
-
-## Backend (Contact Form API)
-
-The backend lives in `backend/contact-form-api/` and is a Cloudflare Worker deployed via Wrangler.
-
-```bash
-cd backend/contact-form-api
-
-# Install dependencies
-npm install
-
-# Local development server (http://localhost:8787)
-npm run dev
-
-# Run tests
-npm test
-
-# Deploy to Cloudflare
-npm run deploy
-```
-
-Tests use Vitest with `@cloudflare/vitest-pool-workers`.
+No build step. Open `http://localhost:8000`.
 
 ## Architecture
 
-- **Frontend** (`index.html` + `index.js`): Single-page static site using Bootstrap 4. The contact form POSTs JSON to `https://contacto.ammonita.cl`.
-- **Backend** (`backend/contact-form-api/src/index.js`): Cloudflare Worker that receives POST requests, validates fields, and sends email via the Resend API. CORS is restricted to `ammonita.cl` and `www.ammonita.cl`.
-- **Email delivery**: Uses Resend API. `FROM_EMAIL`, `TO_EMAIL`, and `RESEND_API_KEY` are configured in `wrangler.jsonc` vars (note: the API key in `wrangler.jsonc` is exposed in plaintext — it should be moved to a Wrangler secret).
+- `index.html` — the entire site. Single page, semantic sections (`hero`, `services`, `approach`, `team`, `cta`, `footer`).
+- `css/styles.css` — all styles. Uses CSS custom properties for the color/typography system; sections are clearly delimited with banner comments (`/* ================== HERO ================== */`).
+- Brand mark is an inline SVG inside `nav.top` and reused in the footer.
+- The "before / after migration" cost dashboard in the hero is a hand-built inline SVG chart (`.chart-svg`). The y-axis maps `y=150 → $0`, `y=110 → $5k`, `y=70 → $10k`, `y=30 → $15k` (i.e. ~8px per $1k). Keep the chart values consistent with the KPI tile (`Gasto mensual`).
+- Skill icons under each engineer load from the Devicon CDN (`https://cdn.jsdelivr.net/gh/devicons/devicon/...`).
 
-## Key Notes
+## Contact form
 
-- The `RESEND_API_KEY` in `wrangler.jsonc` should be stored as a Wrangler secret (`wrangler secret put RESEND_API_KEY`) rather than in the config file.
-- The frontend alert messages in `index.js` are in English while the rest of the site is in Spanish — these may need to be localized.
+The current site has **no contact form** — the CTA is a `mailto:hola@minga.cl` link. No backend is invoked at runtime.
+
+A `backend/contact-form-api/` directory still exists from the prior Ammonita iteration (a Cloudflare Worker that posted to Resend). It is **not wired to the current site** and references `contacto.ammonita.cl` / `ammonita.cl` CORS / `contacto-web@ammonita.cl`. If a contact form is reintroduced for Minga, this Worker would need its env vars, CORS origins, and the frontend `fetch` URL all updated.
+
+## Conventions
+
+- Site copy is Spanish. Avoid mixing in English/anglicisms (e.g. `pricing`, `lock-in`, `engagement`, `handoffs`) — prefer Spanish equivalents (`modelo`, `sin amarras`, etc.).
+- Voice is direct and austere; do not write copy that diminishes competitors.
+- Tech terms that are universally used in industry (e.g. `DevOps`, `IAM`, `Kubernetes`) are fine to keep in English.

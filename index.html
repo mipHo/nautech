@@ -7,741 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #fbfaf8;
-    --bg-alt: #ffffff;
-    --bg-soft: #f5f4f0;
-    --ink: #0c0d10;
-    --ink-2: #3f434b;
-    --ink-3: #6b7280;
-    --ink-4: #9ca3af;
-    --rule: rgba(12, 13, 16, 0.08);
-    --rule-2: rgba(12, 13, 16, 0.14);
-    --brand: #0e2a47;
-    --accent: #2563eb;
-    --accent-2: #1d4ed8;
-    --accent-soft: rgba(37, 99, 235, 0.06);
-    --warn: #dc2626;
-    --success: #059669;
-    --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-  }
-
-  a { color: inherit; text-decoration: none; }
-
-  .wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  @media (max-width: 700px) {
-    .wrap { padding: 0 20px; }
-  }
-
-  /* ================== NAV ================== */
-  nav.top {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(251, 250, 248, 0.82);
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .top-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.3px;
-    color: var(--ink);
-  }
-
-  .brand svg { width: 35px; height: 35px; color: var(--brand); }
-
-  .top-links {
-    display: flex;
-    gap: 28px;
-    font-size: 14px;
-    color: var(--ink-2);
-  }
-
-  .top-links a { transition: color 0.15s; }
-  .top-links a:hover { color: var(--ink); }
-
-  .top-cta {
-    padding: 8px 14px;
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    transition: background 0.15s;
-  }
-
-  .top-cta:hover { background: var(--accent-2); }
-
-  @media (max-width: 800px) {
-    .top-links { display: none; }
-    .top-inner { padding: 14px 20px; }
-  }
-
-  /* ================== HERO ================== */
-  .hero {
-    padding: 88px 0 120px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 72px;
-    align-items: center;
-  }
-
-  @media (max-width: 1024px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 56px; }
-    .hero { padding: 64px 0 88px; }
-  }
-
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.2px;
-    margin-bottom: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .eyebrow::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    display: inline-block;
-  }
-
-  .hero h1 {
-    font-weight: 500;
-    font-size: clamp(44px, 5.4vw, 72px);
-    line-height: 1.02;
-    letter-spacing: -2.4px;
-    color: var(--ink);
-    margin-bottom: 24px;
-  }
-
-  .hero h1 .accent {
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    color: var(--ink-2);
-    line-height: 1.55;
-    margin-bottom: 36px;
-    max-width: 540px;
-  }
-
-  .hero-cta-row {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    padding: 13px 20px;
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    transition: all 0.15s;
-    border: 1px solid var(--ink);
-  }
-
-  .btn-primary:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-  }
-
-  .btn-primary svg { transition: transform 0.15s; }
-  .btn-primary:hover svg { transform: translateX(2px); }
-
-  .btn-ghost {
-    padding: 13px 20px;
-    background: transparent;
-    color: var(--ink);
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    transition: all 0.15s;
-    border: 1px solid var(--rule-2);
-  }
-
-  .btn-ghost:hover {
-    background: var(--bg-soft);
-    border-color: var(--ink-3);
-  }
-
-  /* ================== DASHBOARD HERO VISUAL ================== */
-  .dashboard {
-    background: var(--bg-alt);
-    border: 1px solid var(--rule-2);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 1px 2px rgba(12, 13, 16, 0.04),
-                0 12px 40px -8px rgba(12, 13, 16, 0.1);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.35s forwards cubic-bezier(.22,1,.36,1);
-  }
-
-  .dash-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 13px 18px;
-    border-bottom: 1px solid var(--rule);
-    background: var(--bg-soft);
-  }
-
-  .dash-title {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--ink-2);
-    display: flex;
-    align-items: center;
-    gap: 9px;
-  }
-
-  .dash-title .dot {
-    width: 7px;
-    height: 7px;
-    background: var(--success);
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15); }
-    50% { box-shadow: 0 0 0 5px rgba(5, 150, 105, 0.05); }
-  }
-
-  .dash-date {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-3);
-  }
-
-  .dash-kpis {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .kpi {
-    padding: 18px 20px;
-  }
-
-  .kpi + .kpi {
-    border-left: 1px solid var(--rule);
-  }
-
-  .kpi-label {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    color: var(--ink-3);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .kpi-value {
-    font-family: var(--mono);
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: -0.8px;
-    color: var(--ink);
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-
-  .kpi-value.accent { color: var(--accent); }
-
-  .kpi-delta {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--success);
-    background: rgba(5, 150, 105, 0.08);
-    padding: 2px 6px;
-    border-radius: 4px;
-    letter-spacing: 0;
-  }
-
-  .dash-chart {
-    padding: 16px 16px 12px;
-  }
-
-  .dash-chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    padding: 0 4px;
-  }
-
-  .chart-legend {
-    display: flex;
-    gap: 14px;
-    font-family: var(--mono);
-    font-size: 10.5px;
-    color: var(--ink-3);
-  }
-
-  .legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 2px;
-    border-radius: 2px;
-  }
-
-  .legend-dot.before { background: var(--warn); }
-  .legend-dot.after { background: var(--accent); }
-
-  .chart-unit {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    color: var(--ink-3);
-  }
-
-  .chart-svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .chart-svg .line-path {
-    stroke-dasharray: 600;
-    stroke-dashoffset: 600;
-    animation: drawLine 1.6s 0.6s forwards ease-out;
-  }
-
-  .chart-svg .line-path.after {
-    animation-delay: 1.3s;
-  }
-
-  @keyframes drawLine {
-    to { stroke-dashoffset: 0; }
-  }
-
-  .chart-svg .data-point {
-    opacity: 0;
-    animation: fadePoint 0.3s forwards ease-out;
-  }
-
-  @keyframes fadePoint {
-    to { opacity: 1; }
-  }
-
-  /* ================== SECTIONS ================== */
-  section.block {
-    padding: 96px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .section-eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    margin-bottom: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-  }
-
-  .section-title {
-    font-weight: 500;
-    font-size: clamp(32px, 3.8vw, 48px);
-    line-height: 1.05;
-    letter-spacing: -1.6px;
-    margin-bottom: 16px;
-    max-width: 720px;
-  }
-
-  .section-lede {
-    font-size: 17px;
-    color: var(--ink-2);
-    line-height: 1.55;
-    max-width: 600px;
-    margin-bottom: 56px;
-  }
-
-  /* ================== SERVICES ================== */
-  .services {
-    border-top: 1px solid var(--rule);
-  }
-
-  .service-item {
-    display: grid;
-    grid-template-columns: 80px 1.4fr 1fr 170px;
-    gap: 40px;
-    align-items: start;
-    padding: 32px 0;
-    border-bottom: 1px solid var(--rule);
-    transition: background 0.25s, padding-left 0.25s;
-    position: relative;
-  }
-
-  .service-item:hover {
-    background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
-    padding-left: 12px;
-  }
-
-  @media (max-width: 900px) {
-    .service-item { grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; }
-    .service-item .service-desc { grid-column: 1 / -1; }
-    .service-item .service-meta { display: none; }
-  }
-
-  .service-num {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--ink-3);
-    padding-top: 4px;
-  }
-
-  .service-title {
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.6px;
-    color: var(--ink);
-    line-height: 1.2;
-  }
-
-  .service-title small {
-    display: block;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-3);
-    font-weight: 400;
-    margin-top: 6px;
-    letter-spacing: 0;
-  }
-
-  .service-desc {
-    font-size: 15px;
-    color: var(--ink-2);
-    line-height: 1.6;
-    max-width: 420px;
-    padding-top: 2px;
-  }
-
-  .service-meta {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-3);
-    padding-top: 4px;
-    text-align: right;
-    line-height: 1.5;
-    transition: color 0.2s, transform 0.2s;
-  }
-
-  .service-item:hover .service-meta {
-    color: var(--accent);
-    transform: translateX(4px);
-  }
-
-  /* ================== APPROACH ================== */
-  .approach-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  @media (max-width: 800px) {
-    .approach-grid { grid-template-columns: 1fr; }
-  }
-
-  .approach-card {
-    padding: 28px;
-    background: var(--bg-alt);
-    border: 1px solid var(--rule-2);
-    border-radius: 10px;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-
-  .approach-card:hover {
-    border-color: var(--ink-3);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px -8px rgba(12, 13, 16, 0.1);
-  }
-
-  .approach-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    margin-bottom: 12px;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-  }
-
-  .approach-title {
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: -0.3px;
-    margin-bottom: 10px;
-    line-height: 1.3;
-    color: var(--ink);
-  }
-
-  .approach-body {
-    font-size: 14.5px;
-    color: var(--ink-2);
-    line-height: 1.6;
-  }
-
-  /* ================== TEAM ================== */
-  .team-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-  }
-
-  @media (max-width: 700px) {
-    .team-grid { grid-template-columns: 1fr; gap: 36px; }
-  }
-
-  .person {
-    padding-top: 24px;
-    border-top: 1px solid var(--rule-2);
-  }
-
-  .person-name {
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -0.7px;
-    margin-bottom: 6px;
-  }
-
-  .person-role {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    margin-bottom: 18px;
-    letter-spacing: 0.3px;
-  }
-
-  .person-bio {
-    font-size: 14.5px;
-    color: var(--ink-2);
-    line-height: 1.6;
-  }
-
-  /* ================== CTA ================== */
-  .cta {
-    padding: 120px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 600px 300px at 50% 40%, var(--accent-soft), transparent 70%);
-    pointer-events: none;
-  }
-
-  .cta .wrap { position: relative; }
-
-  .cta h2 {
-    font-size: clamp(36px, 4.8vw, 60px);
-    font-weight: 500;
-    letter-spacing: -2px;
-    line-height: 1.02;
-    margin-bottom: 20px;
-  }
-
-  .cta h2 .accent { color: var(--accent); }
-
-  .cta p {
-    font-size: 17px;
-    color: var(--ink-2);
-    max-width: 520px;
-    margin: 0 auto 36px;
-    line-height: 1.55;
-  }
-
-  .cta .btn-primary {
-    padding: 15px 26px;
-    font-size: 15px;
-  }
-
-  .cta-meta {
-    margin-top: 28px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-3);
-    letter-spacing: 0.3px;
-  }
-
-  /* ================== FOOTER ================== */
-  footer {
-    padding: 56px 0 40px;
-    background: #0c0d10;
-    color: #e5e7eb;
-    margin-top: 64px;
-  }
-
-  .foot {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 32px;
-  }
-
-  .foot-left {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    max-width: 420px;
-  }
-
-  .foot-brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-weight: 500;
-    font-size: 22px;
-    color: #ffffff;
-  }
-
-  .foot-brand svg {
-    width: 52px !important;
-    height: 52px !important;
-    color: #ffffff !important;
-  }
-
-  .foot-note {
-    font-size: 13px;
-    color: #9ca3af;
-    font-style: italic;
-    line-height: 1.5;
-  }
-
-  .foot-right {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
-  }
-
-  .foot-meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: #9ca3af;
-  }
-
-  .foot-links {
-    display: flex;
-    gap: 20px;
-    font-family: var(--mono);
-    font-size: 11px;
-  }
-
-  .foot-links a { color: #9ca3af; transition: color 0.15s; }
-  .foot-links a:hover { color: #ffffff; }
-
-  @media (max-width: 640px) {
-    .foot { flex-direction: column; align-items: flex-start; }
-    .foot-right { text-align: left; align-items: flex-start; }
-  }
-
-  /* ================== MOTION ================== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .rise { opacity: 0; animation: fadeUp 0.7s forwards ease-out; }
-  .rise-1 { animation-delay: 0.05s; }
-  .rise-2 { animation-delay: 0.15s; }
-  .rise-3 { animation-delay: 0.28s; }
-  .rise-4 { animation-delay: 0.42s; }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .reveal.in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  ::selection {
-    background: var(--accent);
-    color: var(--bg);
-  }
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -968,28 +234,28 @@
   <div class="wrap">
     <div class="section-eyebrow">Enfoque</div>
     <h2 class="section-title">Cómo trabajamos</h2>
-    <p class="section-lede">Cuatro principios que definen cada engagement, desde la primera auditoría hasta las revisiones recurrentes.</p>
+    <p class="section-lede">Cuatro principios que definen cómo trabajamos, desde la primera auditoría hasta las revisiones mensuales.</p>
 
     <div class="approach-grid">
       <div class="approach-card">
         <div class="approach-num">01 / Personas</div>
-        <h3 class="approach-title">Dos ingenieros senior, no un equipo de veinte.</h3>
-        <p class="approach-body">Hablas con quien ejecuta. Sin handoffs a juniors, sin project managers facturando reuniones. Eso ya representa el 40% de lo que cobra una consultora grande.</p>
+        <h3 class="approach-title">Dos ingenieros senior, nada más.</h3>
+        <p class="approach-body">Hablas siempre con quien ejecuta. Sin intermediarios, sin reuniones de coordinación que se facturan. Decisiones rápidas y respuestas directas.</p>
       </div>
       <div class="approach-card">
         <div class="approach-num">02 / Foco</div>
         <h3 class="approach-title">Solo hacemos optimización cloud.</h3>
-        <p class="approach-body">Optimizar nubes legacy es tedioso y poco glamoroso. Casi nadie lo hace bien. Es nuestra única especialidad — por eso lo hacemos realmente bien.</p>
+        <p class="approach-body">Es nuestra única especialidad. Cada hora que invertimos va a entender cómo bajar tu factura sin romper lo que ya funciona.</p>
       </div>
       <div class="approach-card">
-        <div class="approach-num">03 / Pricing</div>
+        <div class="approach-num">03 / Modelo</div>
         <h3 class="approach-title">Cobramos del ahorro que generamos.</h3>
-        <p class="approach-body">Parte de nuestros honorarios se ata a la reducción real de tu factura. Si no ahorras, no cobramos. Piel en el juego, incentivos alineados.</p>
+        <p class="approach-body">Parte de nuestros honorarios depende de cuánto baje tu factura. Si no ahorras, no cobramos. Compartimos el riesgo y el resultado.</p>
       </div>
       <div class="approach-card">
         <div class="approach-num">04 / Salida</div>
-        <h3 class="approach-title">Sin lock-in. Nunca.</h3>
-        <p class="approach-body">Todo queda documentado y reproducible por tu equipo. Sin herramientas propietarias, sin dependencia de nosotros. Cuando quieras irte, te vas.</p>
+        <h3 class="approach-title">Sin amarras. Nunca.</h3>
+        <p class="approach-body">Todo queda documentado y reproducible por tu equipo. Sin herramientas propias, sin dependencia de nosotros. Te vas cuando quieras, con todo en tus manos.</p>
       </div>
     </div>
   </div>
@@ -999,19 +265,39 @@
 <section class="block" id="team">
   <div class="wrap">
     <div class="section-eyebrow">Equipo</div>
-    <h2 class="section-title">Dos ingenieros. Eso es todo.</h2>
-    <p class="section-lede">Entre los dos cinco años de infraestructura en la nube, cientos de anomalías de facturación resueltas y una aversión importante al desperdicio.</p>
+    <h2 class="section-title">Dos ingenieros, sin estructura adicional.</h2>
+    <p class="section-lede">Cinco años combinados en infraestructura cloud con fuertes raíces en Linux, y una preferencia natural por entender a fondo lo que tocamos.</p>
 
     <div class="team-grid">
       <div class="person">
         <div class="person-name">Tino</div>
-        <div class="person-role">Cloud architecture · DevOps</div>
-        <p class="person-bio">Años en nubes ajenas arreglando lo que otros no quisieron tocar. Obsesivo con el costo por request y con el detalle en los IAM policies. Si algo se puede hacer más barato sin romperlo, lo encuentra.</p>
+        <div class="person-role">Arquitectura cloud · DevOps</div>
+        <p class="person-bio">Años trabajando con infraestructura cloud y servidores Linux. Le interesa entender el funcionamiento interno de cada sistema antes de modificarlo. Cuida el costo por solicitud y la simplicidad de cada decisión arquitectónica.</p>
+        <div class="person-skills">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" title="AWS">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" title="Google Cloud">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" alt="Prometheus" title="Prometheus">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana" title="Grafana">
+        </div>
       </div>
       <div class="person">
         <div class="person-name">Gian</div>
         <div class="person-role">Infraestructura · Seguridad</div>
-        <p class="person-bio">Migraciones, hardening, y la clase de auditorías que los auditores formales hacen en seis meses, hechas en dos semanas. Lee documentación de AWS por diversión — cosa que deberíamos agradecer.</p>
+        <p class="person-bio">Fondo en infraestructura y seguridad sobre Linux. Lee documentación técnica como hábito y disfruta entender sistemas nuevos hasta el último detalle. Migraciones y revisiones hechas con mesura, sin atajos.</p>
+        <div class="person-skills">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible" title="Ansible">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" alt="Prometheus" title="Prometheus">
+        </div>
       </div>
     </div>
   </div>
@@ -1048,7 +334,7 @@
         <div class="foot-note">Minga — del chilote: trabajo colectivo para mover lo que uno solo no puede.</div>
       </div>
       <div class="foot-right">
-        <div class="foot-meta">Santiago, Chile · © 2026</div>
+        <div class="foot-meta">Chile · © 2026</div>
         <div class="foot-links">
           <a href="mailto:hola@minga.cl">hola@minga.cl</a>
           <a href="#">LinkedIn</a>
