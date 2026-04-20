@@ -422,44 +422,59 @@ section.block {
 
 /* ================== SERVICES ================== */
 .services {
-  border-top: 1px solid var(--rule);
-}
-
-.service-item {
   display: grid;
-  grid-template-columns: 80px 1.4fr 1fr 170px;
-  gap: 40px;
-  align-items: start;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--rule);
-  transition: background 0.25s, padding-left 0.25s;
-  position: relative;
-}
-
-.service-item:hover {
-  background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
-  padding-left: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 @media (max-width: 900px) {
-  .service-item { grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; }
-  .service-item .service-desc { grid-column: 1 / -1; }
-  .service-item .service-meta { display: none; }
+  .services { grid-template-columns: 1fr; }
+}
+
+.service-card {
+  padding: 28px;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule-2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  border-color: var(--ink-3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(12, 13, 16, 0.1);
+}
+
+.service-icon {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 20px;
+  display: block;
+  opacity: 0.82;
+  transition: opacity 0.2s;
+}
+
+.service-card:hover .service-icon {
+  opacity: 1;
 }
 
 .service-num {
   font-family: var(--mono);
-  font-size: 13px;
-  color: var(--ink-3);
-  padding-top: 4px;
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
 }
 
 .service-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.5px;
   color: var(--ink);
   line-height: 1.2;
+  margin-bottom: 12px;
 }
 
 .service-title small {
@@ -473,24 +488,22 @@ section.block {
 }
 
 .service-desc {
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--ink-2);
   line-height: 1.6;
-  max-width: 420px;
-  padding-top: 2px;
+  margin-bottom: 16px;
+  flex: 1;
 }
 
 .service-meta {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--ink-3);
-  padding-top: 4px;
-  text-align: right;
   line-height: 1.5;
   transition: color 0.2s, transform 0.2s;
 }
 
-.service-item:hover .service-meta {
+.service-card:hover .service-meta {
   color: var(--accent);
   transform: translateX(4px);
 }
