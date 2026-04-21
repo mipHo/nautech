@@ -509,6 +509,30 @@ section.block {
 }
 
 /* ================== APPROACH ================== */
+.approach-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .approach-layout { grid-template-columns: 1fr; }
+  .git-visual { display: none; }
+}
+
+.git-visual {
+  position: sticky;
+  top: 100px;
+}
+
+.git-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.85;
+}
+
 .steps {
   border-top: 1px solid var(--rule);
 }
