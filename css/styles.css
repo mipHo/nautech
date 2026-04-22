@@ -524,6 +524,9 @@ section.block {
 .git-visual {
   position: sticky;
   top: 100px;
+  --clip: 100%;
+  clip-path: inset(0 0 var(--clip) 0);
+  transition: clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .git-visual svg {

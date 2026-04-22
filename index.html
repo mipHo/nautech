@@ -537,495 +537,174 @@
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
             >
-              <!-- main branch -->
-              <line
-                x1="120"
-                y1="16"
-                x2="120"
-                y2="684"
-                stroke="#2563eb"
-                stroke-width="2"
-              />
+              <!-- ===== PHASE 0: Main trunk (step 01) ===== -->
+              <g data-phase="0">
+                <line x1="120" y1="16" x2="120" y2="684" stroke="#2563eb" stroke-width="2" />
+                <circle cx="120" cy="30" r="5" fill="#2563eb" />
+                <text x="126" y="24" font-family="Geist Mono, monospace" font-size="8" fill="#9ca3af">main</text>
+              </g>
 
-              <!-- ===== CLIENT DEVELOPMENT (left, dashed) ===== -->
+              <!-- ===== PHASE 1: Audit zone (step 02) ===== -->
+              <g data-phase="1">
+                <!-- develop branch -->
+                <path
+                  d="M 120,30 H 78 A 10,10 0 0,0 68,40 V 640 A 10,10 0 0,0 78,650 H 120"
+                  stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="4 3" fill="none"
+                />
+                <text x="54" y="38" font-family="Geist Mono, monospace" font-size="7" fill="#d1d5db">develop</text>
 
-              <!-- develop: continuous branch forking from main at y=30, merging at y=650 -->
-              <path
-                d="M 120,30 H 78 A 10,10 0 0,0 68,40 V 640 A 10,10 0 0,0 78,650 H 120"
-                stroke="#d1d5db"
-                stroke-width="1.5"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
+                <!-- develop → main merge y=195 -->
+                <line x1="68" y1="195" x2="120" y2="195" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" />
 
-              <!-- develop → main merge lines (PRs) -->
-              <line
-                x1="68"
-                y1="195"
-                x2="120"
-                y2="195"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-              />
-              <line
-                x1="68"
-                y1="410"
-                x2="120"
-                y2="410"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-              />
+                <!-- feat/auth -->
+                <path
+                  d="M 68,58 H 35 A 10,10 0 0,0 25,68 V 118 A 10,10 0 0,0 35,128 H 68"
+                  stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" fill="none"
+                />
+                <circle cx="25" cy="85" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="25" cy="105" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- feat/auth from develop: x=25, fork y=58, merge y=128 -->
-              <path
-                d="M 68,58 H 35 A 10,10 0 0,0 25,68 V 118 A 10,10 0 0,0 35,128 H 68"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
-              <circle
-                cx="25"
-                cy="85"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="25"
-                cy="105"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+                <!-- feat/ui -->
+                <path
+                  d="M 68,108 H 46 A 10,10 0 0,0 36,118 V 165 A 10,10 0 0,0 46,175 H 68"
+                  stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" fill="none"
+                />
+                <circle cx="36" cy="135" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="36" cy="155" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- feat/ui from develop: x=36, fork y=108, merge y=175 -->
-              <path
-                d="M 68,108 H 46 A 10,10 0 0,0 36,118 V 165 A 10,10 0 0,0 46,175 H 68"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
-              <circle
-                cx="36"
-                cy="135"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="36"
-                cy="155"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+                <!-- minga/audit -->
+                <path
+                  d="M 120,100 H 175 A 10,10 0 0,1 185,110 V 210 A 10,10 0 0,0 175,220 H 120"
+                  stroke="#6b7280" stroke-width="1.5" fill="none"
+                />
+                <circle cx="185" cy="140" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <circle cx="185" cy="168" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <circle cx="185" cy="195" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <text x="133" y="96" font-family="Geist Mono, monospace" font-size="7.5" fill="#6b7280">minga/audit</text>
 
-              <!-- feat/api from develop: x=20, fork y=258, merge y=340 -->
-              <path
-                d="M 68,258 H 30 A 10,10 0 0,0 20,268 V 330 A 10,10 0 0,0 30,340 H 68"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
-              <circle
-                cx="20"
-                cy="290"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="20"
-                cy="315"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+                <!-- plan badge -->
+                <rect x="200" y="159" width="56" height="18" rx="4" fill="#059669" opacity="0.1" />
+                <circle cx="211" cy="168" r="2.5" fill="#059669" />
+                <text x="218" y="172" font-family="Geist Mono, monospace" font-size="8" fill="#059669">plan ✓</text>
 
-              <!-- fix/perf from develop: x=33, fork y=352, merge y=395 -->
-              <path
-                d="M 68,352 H 43 A 10,10 0 0,0 33,362 V 385 A 10,10 0 0,0 43,395 H 68"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
-              <circle
-                cx="33"
-                cy="375"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+                <!-- develop commits -->
+                <circle cx="68" cy="50" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="68" cy="128" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="68" cy="175" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- feat/billing from develop: x=22, fork y=478, merge y=555 -->
-              <path
-                d="M 68,478 H 32 A 10,10 0 0,0 22,488 V 545 A 10,10 0 0,0 32,555 H 68"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
-              <circle
-                cx="22"
-                cy="508"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="22"
-                cy="530"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+                <!-- main commits -->
+                <circle cx="120" cy="100" r="5" fill="#2563eb" />
+                <circle cx="120" cy="195" r="3.5" fill="#2563eb" />
+                <circle cx="120" cy="220" r="5" fill="#2563eb" />
+              </g>
 
-              <!-- hotfix from develop: x=40, fork y=588, merge y=625 -->
-              <path
-                d="M 68,588 H 50 A 10,10 0 0,0 40,598 V 615 A 10,10 0 0,0 50,625 H 68"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-                stroke-dasharray="4 3"
-                fill="none"
-              />
-              <circle
-                cx="40"
-                cy="608"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+              <!-- ===== PHASE 2: Comprensión (step 03) ===== -->
+              <g data-phase="2">
+                <!-- feat/api -->
+                <path
+                  d="M 68,258 H 30 A 10,10 0 0,0 20,268 V 330 A 10,10 0 0,0 30,340 H 68"
+                  stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" fill="none"
+                />
+                <circle cx="20" cy="290" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="20" cy="315" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- commits on develop -->
-              <circle
-                cx="68"
-                cy="50"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="128"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="175"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="230"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="340"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="395"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="450"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="555"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
-              <circle
-                cx="68"
-                cy="625"
-                r="2.5"
-                fill="#fbfaf8"
-                stroke="#d1d5db"
-                stroke-width="1.2"
-              />
+                <!-- develop commits -->
+                <circle cx="68" cy="230" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="68" cy="340" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- dev label -->
-              <text
-                x="54"
-                y="38"
-                font-family="Geist Mono, monospace"
-                font-size="7"
-                fill="#d1d5db"
-              >
-                develop
-              </text>
+                <!-- main commit -->
+                <circle cx="120" cy="300" r="5" fill="#2563eb" />
+              </g>
 
-              <!-- ===== MINGA WORK BRANCHES (right, solid, rounded corners) ===== -->
+              <!-- ===== PHASE 3: Monitoreo de utilización (step 04) ===== -->
+              <g data-phase="3">
+                <!-- develop → main merge y=410 -->
+                <line x1="68" y1="410" x2="120" y2="410" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" />
 
-              <!-- minga/audit: x=185, fork y=100, merge y=220 -->
-              <path
-                d="M 120,100 H 175 A 10,10 0 0,1 185,110 V 210 A 10,10 0 0,0 175,220 H 120"
-                stroke="#6b7280"
-                stroke-width="1.5"
-                fill="none"
-              />
-              <circle
-                cx="185"
-                cy="140"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="185"
-                cy="168"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="185"
-                cy="195"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
+                <!-- fix/perf -->
+                <path
+                  d="M 68,352 H 43 A 10,10 0 0,0 33,362 V 385 A 10,10 0 0,0 43,395 H 68"
+                  stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" fill="none"
+                />
+                <circle cx="33" cy="375" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- minga/infra: x=205, fork y=300, merge y=430 -->
-              <path
-                d="M 120,300 H 195 A 10,10 0 0,1 205,310 V 420 A 10,10 0 0,0 195,430 H 120"
-                stroke="#6b7280"
-                stroke-width="1.5"
-                fill="none"
-              />
-              <circle
-                cx="205"
-                cy="345"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="205"
-                cy="375"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="205"
-                cy="400"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
+                <!-- minga/infra -->
+                <path
+                  d="M 120,300 H 195 A 10,10 0 0,1 205,310 V 420 A 10,10 0 0,0 195,430 H 120"
+                  stroke="#6b7280" stroke-width="1.5" fill="none"
+                />
+                <circle cx="205" cy="345" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <circle cx="205" cy="375" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <circle cx="205" cy="400" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <text x="133" y="296" font-family="Geist Mono, monospace" font-size="7.5" fill="#6b7280">minga/infra</text>
 
-              <!-- minga/optimize: x=178, fork y=500, merge y=610 -->
-              <path
-                d="M 120,500 H 168 A 10,10 0 0,1 178,510 V 600 A 10,10 0 0,0 168,610 H 120"
-                stroke="#6b7280"
-                stroke-width="1.5"
-                fill="none"
-              />
-              <circle
-                cx="178"
-                cy="535"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="178"
-                cy="565"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="178"
-                cy="585"
-                r="3.5"
-                fill="#fbfaf8"
-                stroke="#6b7280"
-                stroke-width="1.5"
-              />
+                <!-- apply badge -->
+                <rect x="220" y="366" width="56" height="18" rx="4" fill="#059669" opacity="0.1" />
+                <circle cx="231" cy="375" r="2.5" fill="#059669" />
+                <text x="238" y="379" font-family="Geist Mono, monospace" font-size="8" fill="#059669">apply ✓</text>
 
-              <!-- work branch labels -->
-              <text
-                x="133"
-                y="96"
-                font-family="Geist Mono, monospace"
-                font-size="7.5"
-                fill="#6b7280"
-              >
-                minga/audit
-              </text>
-              <text
-                x="133"
-                y="296"
-                font-family="Geist Mono, monospace"
-                font-size="7.5"
-                fill="#6b7280"
-              >
-                minga/infra
-              </text>
-              <text
-                x="133"
-                y="496"
-                font-family="Geist Mono, monospace"
-                font-size="7.5"
-                fill="#6b7280"
-              >
-                minga/optimize
-              </text>
+                <!-- develop commits -->
+                <circle cx="68" cy="395" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="68" cy="450" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <!-- CI badges -->
-              <rect
-                x="200"
-                y="159"
-                width="56"
-                height="18"
-                rx="4"
-                fill="#059669"
-                opacity="0.1"
-              />
-              <circle cx="211" cy="168" r="2.5" fill="#059669" />
-              <text
-                x="218"
-                y="172"
-                font-family="Geist Mono, monospace"
-                font-size="8"
-                fill="#059669"
-              >
-                plan ✓
-              </text>
+                <!-- main commits -->
+                <circle cx="120" cy="410" r="3.5" fill="#2563eb" />
+                <circle cx="120" cy="430" r="5" fill="#2563eb" />
+              </g>
 
-              <rect
-                x="220"
-                y="366"
-                width="56"
-                height="18"
-                rx="4"
-                fill="#059669"
-                opacity="0.1"
-              />
-              <circle cx="231" cy="375" r="2.5" fill="#059669" />
-              <text
-                x="238"
-                y="379"
-                font-family="Geist Mono, monospace"
-                font-size="8"
-                fill="#059669"
-              >
-                apply ✓
-              </text>
+              <!-- ===== PHASE 4: Optimización (step 05) ===== -->
+              <g data-phase="4">
+                <!-- feat/billing -->
+                <path
+                  d="M 68,478 H 32 A 10,10 0 0,0 22,488 V 545 A 10,10 0 0,0 32,555 H 68"
+                  stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" fill="none"
+                />
+                <circle cx="22" cy="508" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+                <circle cx="22" cy="530" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
 
-              <rect
-                x="193"
-                y="556"
-                width="62"
-                height="18"
-                rx="4"
-                fill="#059669"
-                opacity="0.1"
-              />
-              <circle cx="204" cy="565" r="2.5" fill="#059669" />
-              <text
-                x="211"
-                y="569"
-                font-family="Geist Mono, monospace"
-                font-size="8"
-                fill="#059669"
-              >
-                deploy ✓
-              </text>
+                <!-- minga/optimize -->
+                <path
+                  d="M 120,500 H 168 A 10,10 0 0,1 178,510 V 600 A 10,10 0 0,0 168,610 H 120"
+                  stroke="#6b7280" stroke-width="1.5" fill="none"
+                />
+                <circle cx="178" cy="535" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <circle cx="178" cy="565" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <circle cx="178" cy="585" r="3.5" fill="#fbfaf8" stroke="#6b7280" stroke-width="1.5" />
+                <text x="133" y="496" font-family="Geist Mono, monospace" font-size="7.5" fill="#6b7280">minga/optimize</text>
 
-              <!-- commits on main -->
-              <circle cx="120" cy="30" r="5" fill="#2563eb" />
-              <circle cx="120" cy="100" r="5" fill="#2563eb" />
-              <circle cx="120" cy="195" r="3.5" fill="#2563eb" />
-              <circle cx="120" cy="220" r="5" fill="#2563eb" />
-              <circle cx="120" cy="300" r="5" fill="#2563eb" />
-              <circle cx="120" cy="410" r="3.5" fill="#2563eb" />
-              <circle cx="120" cy="430" r="5" fill="#2563eb" />
-              <circle cx="120" cy="500" r="5" fill="#2563eb" />
-              <circle cx="120" cy="610" r="5" fill="#2563eb" />
-              <circle cx="120" cy="650" r="3.5" fill="#2563eb" />
-              <circle cx="120" cy="668" r="5" fill="#2563eb" />
+                <!-- deploy badge -->
+                <rect x="193" y="556" width="62" height="18" rx="4" fill="#059669" opacity="0.1" />
+                <circle cx="204" cy="565" r="2.5" fill="#059669" />
+                <text x="211" y="569" font-family="Geist Mono, monospace" font-size="8" fill="#059669">deploy ✓</text>
 
-              <!-- main label + final marker -->
-              <text
-                x="126"
-                y="24"
-                font-family="Geist Mono, monospace"
-                font-size="8"
-                fill="#9ca3af"
-              >
-                main
-              </text>
-              <rect
-                x="132"
-                y="659"
-                width="64"
-                height="18"
-                rx="4"
-                fill="#2563eb"
-                opacity="0.1"
-              />
-              <text
-                x="142"
-                y="672"
-                font-family="Geist Mono, monospace"
-                font-size="8"
-                fill="#2563eb"
-              >
-                production
-              </text>
+                <!-- develop commit -->
+                <circle cx="68" cy="555" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+
+                <!-- main commits -->
+                <circle cx="120" cy="500" r="5" fill="#2563eb" />
+                <circle cx="120" cy="610" r="5" fill="#2563eb" />
+              </g>
+
+              <!-- ===== PHASE 5: Monitoreo continuo (step 06) ===== -->
+              <g data-phase="5">
+                <!-- hotfix -->
+                <path
+                  d="M 68,588 H 50 A 10,10 0 0,0 40,598 V 615 A 10,10 0 0,0 50,625 H 68"
+                  stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 3" fill="none"
+                />
+                <circle cx="40" cy="608" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+
+                <!-- develop commit -->
+                <circle cx="68" cy="625" r="2.5" fill="#fbfaf8" stroke="#d1d5db" stroke-width="1.2" />
+
+                <!-- main commits -->
+                <circle cx="120" cy="650" r="3.5" fill="#2563eb" />
+                <circle cx="120" cy="668" r="5" fill="#2563eb" />
+
+                <!-- production marker -->
+                <rect x="132" y="659" width="64" height="18" rx="4" fill="#2563eb" opacity="0.1" />
+                <text x="142" y="672" font-family="Geist Mono, monospace" font-size="8" fill="#2563eb">production</text>
+              </g>
             </svg>
           </div>
         </div>
@@ -1265,6 +944,23 @@
         el.classList.add("reveal");
         io.observe(el);
       });
+
+      var gitVisual = document.querySelector(".git-visual");
+      if (gitVisual) {
+        var clips = [94, 67, 50, 34, 11, 0];
+        var maxPhase = -1;
+        document.querySelectorAll(".step").forEach(function (step, i) {
+          new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting && i > maxPhase) {
+                maxPhase = i;
+                gitVisual.style.setProperty("--clip", clips[i] + "%");
+              }
+            },
+            { threshold: 0.3 },
+          ).observe(step);
+        });
+      }
     </script>
   </body>
 </html>
