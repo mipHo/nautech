@@ -99,6 +99,30 @@ nav.top {
 
 .top-cta:hover { background: var(--accent-2); }
 
+/* ---- theme toggle button ---- */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--rule-2);
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
 @media (max-width: 800px) {
   .top-links { display: none; }
   .top-inner { padding: 14px 20px; }
@@ -516,11 +540,6 @@ section.block {
   align-items: start;
 }
 
-@media (max-width: 900px) {
-  .approach-layout { grid-template-columns: 1fr; }
-  .git-visual { display: none; }
-}
-
 .git-visual {
   position: sticky;
   top: 100px;
@@ -534,6 +553,27 @@ section.block {
   height: auto;
   display: block;
   opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .approach-layout {
+    grid-template-columns: 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .steps { position: relative; z-index: 1; }
+  .git-visual {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .git-visual svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .steps {
@@ -784,4 +824,64 @@ footer {
 ::selection {
   background: var(--accent);
   color: var(--bg);
+}
+
+/* ================== DARK MODE ================== */
+[data-theme="dark"] {
+  --bg: #111215;
+  --bg-alt: #1a1b1f;
+  --bg-soft: #16171b;
+  --ink: #e5e7eb;
+  --ink-2: #9ca3af;
+  --ink-3: #6b7280;
+  --ink-4: #4b5563;
+  --rule: rgba(255, 255, 255, 0.08);
+  --rule-2: rgba(255, 255, 255, 0.12);
+  --brand: #93b4e8;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+}
+
+[data-theme="dark"] nav.top {
+  background: rgba(17, 18, 21, 0.82);
+}
+
+/* chart SVG overrides */
+[data-theme="dark"] .chart-svg > g:nth-of-type(1) {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .chart-svg > line {
+  stroke: #e5e7eb;
+}
+
+[data-theme="dark"] .chart-svg > g:nth-of-type(4) rect {
+  fill: #e5e7eb;
+}
+
+[data-theme="dark"] .chart-svg > g:nth-of-type(4) text {
+  fill: #111215;
+}
+
+[data-theme="dark"] .chart-svg > g:nth-of-type(5),
+[data-theme="dark"] .chart-svg > g:nth-of-type(6) {
+  fill: #1a1b1f;
+}
+
+/* service icon overrides */
+[data-theme="dark"] .service-icon {
+  filter: invert(1);
+}
+
+/* git visual overrides */
+[data-theme="dark"] .git-visual circle[fill="#fbfaf8"] {
+  fill: #111215;
+}
+
+/* footer in dark mode */
+[data-theme="dark"] footer {
+  background: #0a0b0e;
+}
+
+[data-theme="dark"] ::selection {
+  color: #ffffff;
 }

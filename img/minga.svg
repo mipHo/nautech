@@ -1,0 +1,23 @@
+<svg viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <style>
+    .mark { stroke: #0e2a47; fill: none; }
+    .mark-fill { fill: #0e2a47; }
+    @media (prefers-color-scheme: dark) {
+      .mark { stroke: #93b4e8; }
+      .mark-fill { fill: #93b4e8; }
+    }
+  </style>
+  <g transform="rotate(-5)">
+    <rect class="mark-fill" x="-42" y="-50" width="84" height="14" />
+  </g>
+  <g transform="translate(-30, 2) rotate(-5)">
+    <path class="mark" d="M -8 22 L -8 -20 Q -8 -28 0 -28 Q 8 -28 8 -20 L 8 22" stroke-width="9" stroke-linecap="round" />
+  </g>
+  <g transform="translate(0, 2) rotate(-5)">
+    <path class="mark" d="M -8 22 L -8 -20 Q -8 -28 0 -28 Q 8 -28 8 -20 L 8 22" stroke-width="9" stroke-linecap="round" />
+  </g>
+  <g transform="translate(30, 2) rotate(-5)">
+    <path class="mark" d="M -8 22 L -8 -20 Q -8 -28 0 -28 Q 8 -28 8 -20 L 8 22" stroke-width="9" stroke-linecap="round" />
+  </g>
+  <line class="mark" x1="-46" y1="32" x2="46" y2="32" stroke-width="3" stroke-linecap="round" />
+</svg>
